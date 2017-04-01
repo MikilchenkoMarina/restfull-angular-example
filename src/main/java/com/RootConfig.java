@@ -26,7 +26,7 @@ import static org.springframework.orm.jpa.vendor.Database.POSTGRESQL;
  * @author mmikilchenko on 01.04.2017.
  */
 @Configuration
-@EnableJpaRepositories(basePackages = "com.inspoDataBase.jpaUsageDataBase.jpaRepository")
+@EnableJpaRepositories(basePackages = "com.entity")
 @EnableTransactionManagement
 @ComponentScan(basePackages = "com", excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)})
 public class RootConfig {
@@ -52,7 +52,7 @@ public class RootConfig {
                 new LocalContainerEntityManagerFactoryBean();
         lcemfBean.setDataSource(dataSource);
         lcemfBean.setJpaVendorAdapter(jpaVendorAdapter);
-        lcemfBean.setPackagesToScan("com.inspoDataBase.entity");
+        lcemfBean.setPackagesToScan("com.entity");
 
         Properties prop = new Properties();
         prop.setProperty("javax.persistence.validation.mode", "none");
