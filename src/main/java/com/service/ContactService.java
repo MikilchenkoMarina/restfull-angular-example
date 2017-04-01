@@ -34,9 +34,6 @@ public class ContactService {
         contactRepository.deleteById(id);
     }
 
-    public Contact findContactByUsername(String username) {
-        return contactRepository.findByUsername(username);
-    }
 
     public void printContactList(List<Contact> contactList) {
         for (Contact contact : contactList) {

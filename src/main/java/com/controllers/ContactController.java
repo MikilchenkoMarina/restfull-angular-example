@@ -23,7 +23,7 @@ public class ContactController {
 
     //-------------------Retrieve All Contacts--------------------------------------------------------
 
-    @RequestMapping(value = "/contact/", method = RequestMethod.GET)
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public ResponseEntity<List<Contact>> listAllUsers() {
         List<Contact> contacts = contactService.findAllContacts();
         if (contacts.isEmpty()) {
@@ -48,7 +48,7 @@ public class ContactController {
 
     //-------------------Create a User--------------------------------------------------------
 
-    @RequestMapping(value = "/user/", method = RequestMethod.POST)
+    @RequestMapping(value = "/contact", method = RequestMethod.POST)
     public ResponseEntity<Void> createUser(@RequestBody Contact contact, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating User " + contact.getUsername());
 
@@ -60,7 +60,7 @@ public class ContactController {
         contactService.addContact(contact);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(contact.getId()).toUri());
+        headers.setLocation(ucBuilder.path("/contact/{id}").buildAndExpand(contact.getId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 

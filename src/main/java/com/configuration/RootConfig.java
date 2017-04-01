@@ -26,7 +26,7 @@ import static org.springframework.orm.jpa.vendor.Database.POSTGRESQL;
  * @author mmikilchenko on 01.04.2017.
  */
 @Configuration
-@EnableJpaRepositories(basePackages = "com.entity")
+@EnableJpaRepositories(basePackages = "com.repository")
 @EnableTransactionManagement
 @ComponentScan(basePackages = "com", excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)})
 public class RootConfig {
