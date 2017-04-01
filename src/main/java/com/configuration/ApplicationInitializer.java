@@ -1,4 +1,4 @@
-package com;
+package com.configuration;
 
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
