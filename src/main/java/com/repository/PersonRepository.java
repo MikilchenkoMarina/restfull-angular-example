@@ -1,6 +1,6 @@
 package com.repository;
 
-import com.entity.Contact;
+import com.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,13 +9,13 @@ import java.util.List;
 /**
  * @author mmikilchenko on 01.04.2017.
  */
-public interface ContactRepository extends JpaRepository<Contact, Integer> {
-    Contact saveAndFlush(Contact contact);
+public interface PersonRepository extends JpaRepository<Person, Integer> {
+    Person saveAndFlush(Person person);
 
-    List<Contact> findAll();
+    List<Person> findAll();
 
-    Contact findById(Integer id);
+    Person findByPid(Integer pid);
 
     @Transactional
-    void deleteById(Integer id);
+    void deleteByPid(Integer pid);
 }

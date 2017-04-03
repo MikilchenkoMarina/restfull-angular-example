@@ -6,8 +6,8 @@ import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
-import javax.servlet.MultipartConfigElement;
-import javax.servlet.ServletRegistration;
+/*import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;*/
 
 /**
  * @author mmikilchenko on 01.04.2017.
@@ -33,10 +33,10 @@ public class ApplicationInitializer  extends AbstractAnnotationConfigDispatcherS
         return new Filter[]{new HiddenHttpMethodFilter(), new MultipartFilter(), new OpenEntityManagerInViewFilter()};
     }
 
-    @Override
+/*    @Override
     protected void customizeRegistration(ServletRegistration.Dynamic  registration) {
         registration.setMultipartConfig(
                 new MultipartConfigElement(""));
-    }
+    }*/
 
 }
