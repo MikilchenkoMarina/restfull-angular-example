@@ -42,10 +42,4 @@ public class PersonService {
         personRepository.saveAndFlush(p);
     }
 
-
-    public void printContactList(List<Person> personList) {
-        for (Person person : personList) {
-            System.out.println(person.toString());
-        }
-    }
 }
