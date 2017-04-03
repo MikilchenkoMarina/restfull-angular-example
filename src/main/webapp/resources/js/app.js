@@ -1,9 +1,9 @@
 var app = angular.module('myApp', ['ngResource']);
 app.factory('Person', ['$resource', function ($resource) {
-    return $resource('/person/:personId', {personId: '@pid'}
-        /*      {
-         updatePerson: {method: 'PUT'}
-         }*/
+    return $resource('/person/:personId', {personId: '@pid'},
+        {
+            updatePerson: {method: 'PUT'},
+        }
     );
 }]);
 app.controller('PersonController', ['$scope', 'Person', function ($scope, Person) {
@@ -12,7 +12,7 @@ app.controller('PersonController', ['$scope', 'Person', function ($scope, Person
     ob.persons = [];
     ob.person = new Person();
     ob.fetchAllPersons = function () {
-        debugger
+
         ob.persons = Person.query();
     };
     debugger
@@ -20,13 +20,11 @@ app.controller('PersonController', ['$scope', 'Person', function ($scope, Person
     ob.addPerson = function () {
         console.log('Inside save');
         debugger
-        if ( $scope.personForm.$valid) {
+        if ($scope.personForm.$valid) {
             debugger
             ob.person.$save(function (person) {
                     console.log(person);
-                    debugger
                     ob.flag = 'created';
-                    debugger
                     ob.reset();
                     ob.fetchAllPersons();
                 },
@@ -38,18 +36,22 @@ app.controller('PersonController', ['$scope', 'Person', function ($scope, Person
             );
         }
     };
-    /*    ob.editPerson = function(id){
-     console.log('Inside edit');
-     ob.person = Person.get({ personId: id}, function() {
-     ob.flag = 'edit';
-     });
-     };*/
+    ob.editPerson = function (id) {
+        console.log('Inside edit');
+        ob.person = Person.get({personId: id}, function () {
+            ob.flag = 'edit';
+        });
+    };
     ob.updatePersonDetail = function () {
+        debugger
         console.log('Inside update');
         if ($scope.personForm.$valid) {
+            debugger
             ob.person.$updatePerson(function (person) {
                 console.log(person);
+                debugger
                 ob.updatedId = person.pid;
+                debugger
                 ob.reset();
                 ob.flag = 'updated';
                 ob.fetchAllPersons();
@@ -58,6 +60,7 @@ app.controller('PersonController', ['$scope', 'Person', function ($scope, Person
     };
     ob.deletePerson = function (id) {
         console.log('Inside delete');
+        debugger
         ob.person = Person.delete({personId: id}, function () {
             ob.reset();
             ob.flag = 'deleted';
@@ -68,9 +71,9 @@ app.controller('PersonController', ['$scope', 'Person', function ($scope, Person
         ob.person = new Person();
         $scope.personForm.$setPristine();
     };
-    /*    ob.cancelUpdate = function(id){
-     ob.person = new Person();
-     ob.flag= '';
-     ob.fetchAllPersons();
-     };*/
+    ob.cancelUpdate = function (id) {
+        ob.person = new Person();
+        ob.flag = '';
+        ob.fetchAllPersons();
+    };
 }]);

@@ -23,12 +23,6 @@ public class PersonController {
     @Autowired
     PersonService personService;
 
-/*
-    @RequestMapping("")
-    public String home() {
-        return "home";
-    }
-*/
 
     //-------------------Retrieve All Contacts--------------------------------------------------------
 
@@ -71,6 +65,17 @@ public class PersonController {
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/{id}").buildAndExpand(person.getPid()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value="/{id}", method = RequestMethod.PUT )
+    public ResponseEntity<Person> updatePerson(@RequestBody Person person) {
+        personService.updatePersonByPid(person);
+        return new ResponseEntity<Person>(person, HttpStatus.OK);
+    }
+    @RequestMapping(value="/{id}", method = RequestMethod.DELETE )
+    public ResponseEntity<Void> deletePerson(@PathVariable("id") Integer id) {
+        personService.deletePersonByPid(id);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 
 

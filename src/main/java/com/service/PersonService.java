@@ -34,12 +34,13 @@ public class PersonService {
         personRepository.deleteByPid(pid);
     }
 
-    public void updatePersonByPid(int pid) {
-        Person person =  findPersonByPid(pid);
+    public void updatePersonByPid(Person person) {
 
-        personRepository.deleteByPid(pid);
+        Person p = findPersonByPid(person.getPid());
+        p.setName(person.getName());
+        p.setLocation(person.getLocation());
+        personRepository.saveAndFlush(p);
     }
-
 
 
     public void printContactList(List<Person> personList) {
