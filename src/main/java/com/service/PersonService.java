@@ -34,11 +34,22 @@ public class PersonService {
         personRepository.deleteByPid(pid);
     }
 
+    public boolean isPersonExisted(Person person) {
+        for (Person existedPerson : personRepository.findAll()) {
+            if (existedPerson.getName().equals(person.getName())
+                    && existedPerson.getPhone().equals(person.getPhone())
+                    && existedPerson.getAddress().equals(person.getAddress())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void updatePersonByPid(Person person) {
 
         Person p = findPersonByPid(person.getPid());
         p.setName(person.getName());
-        p.setLocation(person.getLocation());
+        p.setPhone(person.getPhone());
         personRepository.saveAndFlush(p);
     }
 

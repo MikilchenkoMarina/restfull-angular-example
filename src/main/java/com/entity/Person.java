@@ -19,16 +19,20 @@ public class Person {
     private String name;
 
     @Basic
-    @Column(name = "location", length = 100)
+    @Column(name = "phone", length = 100)
+    private String phone;
 
-    private String location;
+    @Basic
+    @Column(name = "address", length = 100)
+    private String address;
 
     public Person() {
     }
 
-    public Person(String firstName, String lastName) {
-        this.name = firstName;
-        this.location = lastName;
+    public Person(String name, String phone, String address) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
     }
 
     public int getPid() {
@@ -39,13 +43,6 @@ public class Person {
         this.pid = pid;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                ", location='" + this.location + '\'' +
-                '}';
-    }
-
     public String getName() {
         return name;
     }
@@ -54,12 +51,20 @@ public class Person {
         this.name = name;
     }
 
-    public String getLocation() {
-        return location;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
 

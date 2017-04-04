@@ -54,10 +54,10 @@ public class PersonController {
     public ResponseEntity<Void> createUser(@RequestBody Person person, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating User " + person.getName());
 
-     /*   if (contactService.isUserExist(person)) {
-            System.out.println("A User with name " + user.getName() + " already exist");
+        if (personService.isPersonExisted(person)) {
+            System.out.println("A User with name " + person.getName() + " already exist");
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-        }*/
+        }
 
         personService.addPerson(person);
 
