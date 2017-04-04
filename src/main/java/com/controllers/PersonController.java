@@ -7,7 +7,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -55,10 +54,10 @@ public class PersonController {
     public ResponseEntity<Void> createUser(@RequestBody Person person, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating User " + person.getName());
 
-     /*   if (contactService.isUserExist(person)) {
-            System.out.println("A User with name " + user.getName() + " already exist");
+        if (personService.isPersonExisted(person)) {
+            System.out.println("A User with name " + person.getName() + " already exist");
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-        }*/
+        }
 
         personService.addPerson(person);
 

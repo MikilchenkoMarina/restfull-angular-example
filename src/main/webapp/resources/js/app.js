@@ -1,4 +1,8 @@
+/*    -------------------------App -------------------------------------------*/
 var app = angular.module('myApp', ['ngResource']);
+
+
+/*    -------------------------Factory -------------------------------------------*/
 app.factory('Person', ['$resource', function ($resource) {
     return $resource('/person/:personId', {personId: '@pid'},
         {
@@ -6,17 +10,24 @@ app.factory('Person', ['$resource', function ($resource) {
         }
     );
 }]);
+
+
+/*    -------------------------Controller -----------------------------------------*/
+
 app.controller('PersonController', ['$scope', 'Person', function ($scope, Person) {
     debugger
     var ob = this;
     ob.persons = [];
     ob.person = new Person();
-    ob.fetchAllPersons = function () {
 
+
+    ob.fetchAllPersons = function () {
         ob.persons = Person.query();
     };
-    debugger
+
+
     ob.fetchAllPersons();
+
     ob.addPerson = function () {
         console.log('Inside save');
         debugger
@@ -36,12 +47,14 @@ app.controller('PersonController', ['$scope', 'Person', function ($scope, Person
             );
         }
     };
+
     ob.editPerson = function (id) {
         console.log('Inside edit');
         ob.person = Person.get({personId: id}, function () {
             ob.flag = 'edit';
         });
     };
+
     ob.updatePersonDetail = function () {
         debugger
         console.log('Inside update');
@@ -58,6 +71,7 @@ app.controller('PersonController', ['$scope', 'Person', function ($scope, Person
             });
         }
     };
+
     ob.deletePerson = function (id) {
         console.log('Inside delete');
         debugger
@@ -67,10 +81,12 @@ app.controller('PersonController', ['$scope', 'Person', function ($scope, Person
             ob.fetchAllPersons();
         });
     };
+
     ob.reset = function () {
         ob.person = new Person();
         $scope.personForm.$setPristine();
     };
+
     ob.cancelUpdate = function (id) {
         ob.person = new Person();
         ob.flag = '';
