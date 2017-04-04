@@ -11,8 +11,6 @@
     <div class="col-lg-4">
     <form name="personForm" method="POST" class="form-horizontal">
         <fieldset>
-
-
                 <legend>
                     <div ng-if="personCtrl.flag != 'edit'">
                         <h3> Add New Contact </h3>
