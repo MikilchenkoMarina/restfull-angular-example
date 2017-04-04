@@ -35,7 +35,7 @@
                     <div class="col-lg-10">
                         <input class="form-control" type="text" name="phone" ng-model="personCtrl.person.phone" required  ng-pattern="/^[+49][0-9]{10}$/"/>
                         <span ng-show="personForm.phone.$error.required" class="help-block"><h6>Phone is required.</h6></span>
-                        <span ng-show="personForm.phone.$error.pattern" class="help-block"><h6>Phone is invalid.(must starts with +49 and have 10 digits)</h6></span>
+                        <span ng-show="personForm.phone.$error.pattern" class="help-block"><h6>Phone is invalid.( Phone must starts with +49 and have 10 digits)</h6></span>
                     </div>
                 </div>
 
