@@ -10,4 +10,4 @@ Contact book Angular Single-Page aplication
 <li> One Jsp view is used - for single-page implementation .  </li>
 </ul>
 
- see application here https://contactbookangular.herokuapp.com/
+<h2> see application here https://contactbookangular.herokuapp.com/ </h2>
