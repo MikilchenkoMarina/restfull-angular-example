@@ -18,7 +18,6 @@
                     <div ng-if="personCtrl.flag == 'edit'">
                         <h3> Update Contact for ID: {{ personCtrl.person.pid }} </h3>
                     </div>
-
                 </legend>
 
                 <div class="form-group">
