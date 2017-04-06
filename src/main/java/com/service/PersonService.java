@@ -50,6 +50,7 @@ public class PersonService {
         Person p = findPersonByPid(person.getPid());
         p.setName(person.getName());
         p.setPhone(person.getPhone());
+        p.setAddress(person.getAddress());
         personRepository.saveAndFlush(p);
     }
 
