@@ -18,4 +18,4 @@ A complete Spring application:
 <li> Maven configuration for building</li>
 </ul>
 
-<h2> see application here https://contactbookangular.herokuapp.com/ </h2>
+<h2> see application here https://contact-book-angular.herokuapp.com </h2>
